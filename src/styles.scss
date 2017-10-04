@@ -1,0 +1,46 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+#menu{
+    .sidenav-container {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+    }
+      
+    .sidenav-btn {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+      
+    .sidenav {
+        padding: 20px;
+    }
+}
+.post{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    .mat-card-header{
+        padding-bottom: 24px;
+        align-items: center;
+
+        .mat-card-avatar{
+            height: 60px;
+            width: 60px;
+
+            img{
+                border-radius: 30px;
+            }
+        }
+        .mat-card-subtitle{
+            margin: 0;
+        }
+    }
+    .mat-chip-list-wrapper{
+        margin-bottom: 10px;
+    }
+    
+}
+
+
