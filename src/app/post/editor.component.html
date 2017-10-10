@@ -1,0 +1,64 @@
+<md-expansion-panel>
+  <md-expansion-panel-header>
+    <md-panel-title>
+      Написать статью
+    </md-panel-title>
+    <md-panel-description>
+      Имя автора
+    </md-panel-description>
+  </md-expansion-panel-header>
+
+  <quill-editor [style]="{height: '200px'}" [placeholder]="'Текст статьи...'">
+    <div quill-editor-toolbar>
+      <span class="ql-formats">
+        <button class="ql-bold" [title]="'Жирный'"></button>
+        <button class="ql-italic" [title]="'Наклонный'"></button>
+        <button class="ql-underline" [title]="'Подчеркнутый'"></button>
+        <button class="ql-strike" [title]="'Перечеркнутый'"></button>
+      </span>
+      <span class="ql-formats">
+        <select class="ql-align" [title]="'Выравнивание текста'">
+          <option selected [title]="'Слева'"></option>
+          <option value="center" [title]="'По центру'"></option>
+          <option value="right" [title]="'Справа'"></option>
+          <option value="justify" [title]="'По ширине'"></option>
+        </select>
+      </span>
+      <span class="ql-formats">
+        <button type="button" class="ql-list" value="ordered" [title]="'Нумерованный список'"></button>
+        <button type="button" class="ql-list" value="bullet" [title]="'Маркированный список'"></button>
+      </span>
+      <span class="ql-formats">
+        <select class="ql-header">
+          <option value="1">Заголовок 1</option>
+          <option value="2">Заголовок 2</option>
+          <option value="3">Заголовок 3</option>
+          <option value="4">Заголовок 4</option>
+          <option value="5">Заголовок 5</option>
+          <option value="6">Заголовок 6</option>
+          <option selected="selected">Обычный</option>
+        </select>
+      </span>
+      <span class="ql-formats">
+        <button type="button" class="ql-blockquote" [title]="'Цитата'"></button>
+        <button type="button" class="ql-code-block" [title]="'Код'"></button>
+      </span>
+      <span class="ql-formats">
+        <button type="button" class="ql-link" [title]="'Ссылка'"></button>
+        <button type="button" class="ql-image" [title]="'Изображение'"></button>
+        <button type="button" class="ql-video" [title]="'Видео'"></button>
+      </span>
+    </div>
+  </quill-editor>
+  
+  <md-selection-list #categories>
+    <md-list-option>Категория 1</md-list-option>
+    <md-list-option>Категория 2</md-list-option>
+    <md-list-option>Категория 3</md-list-option>
+    <md-list-option>Категория 4</md-list-option>
+  </md-selection-list>
+
+  <md-action-row>
+      <button md-button color="primary">Опубликовать</button>
+  </md-action-row>
+</md-expansion-panel>
