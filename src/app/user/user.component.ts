@@ -8,16 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class UserComponent implements OnInit {
     users : any = []; 
-
-    @Input() author: any = {};
+    // author : any;
 
     constructor(private userService: UserService) { }
 
     ngOnInit() : void { 
-        this.getAuthor();
+        this.getUsers();
     }
 
-    getAuthor() : void {
-        this.userService.getUsersList().subscribe(data => this.author = data, error => console.log(error.data));
+    getUsers() : void {
+        this.userService.getUsersList().subscribe(data => this.users = data, error => console.log(error.data));
     }
 }

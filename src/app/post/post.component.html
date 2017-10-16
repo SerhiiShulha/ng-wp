@@ -2,17 +2,19 @@
   <md-card-header>
     <div md-card-avatar><img src="{{post.authoravatar}}" class="img-fluid"></div>
     <md-card-title><h3>{{post.title.rendered}}</h3></md-card-title>
-    <md-card-subtitle> {{post.author}}, {{post.date | date}}</md-card-subtitle>
+    <md-card-subtitle>
+      <span *ngFor="let category of post.categoryNames">{{category}}</span>
+    </md-card-subtitle>
+    <md-card-subtitle> {{post.authorName}} | {{post.date | date}}</md-card-subtitle>
   </md-card-header>
   <img md-card-image src="{{post.img}}" alt="Описание картинки поста" class="post-img">
   <md-card-content>
     <p>{{post.excerpt.rendered}}</p>
     <md-chip-list>
-      <md-chip *ngFor="let tag of post.tags"> {{tag.tag}} </md-chip>      
+      <md-chip *ngFor="let tag of post.tagNames"> {{tag}} </md-chip>      
     </md-chip-list>
   </md-card-content>
   <md-card-actions align="end">
-    <button md-button>Открыть</button>
-    <a md-raised-button routerLink="/full-post">Link</a>
+    <a md-raised-button [routerLink]="['/post', post.id]">Link</a>
   </md-card-actions>
 </md-card>

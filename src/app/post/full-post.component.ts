@@ -1,3 +1,5 @@
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { PostsService } from '../services/posts.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class FullPostComponent implements OnInit {
-    constructor() { }
+    
+    post : any = {};
+    // id: number;
 
-    ngOnInit() { }
+    constructor(private postService: PostsService, private route: ActivatedRoute) { }
+
+    ngOnInit() {
+        this.route.paramMap.subscribe((params: ParamMap) => {
+            const id = params.get('postId');
+            this.postService.getPostById(id).subscribe(
+                data => this.post = data,
+                error => console.log(error.data)
+            );
+        });
+    }
+
+    // getFullPost() : void {
+    //     this.postService.getPostById().subscribe(
+    //         data => this.post = data,
+    //         error => console.log(error.data)
+    //     );
+    // }
 }

@@ -1,3 +1,5 @@
+import { TagsService } from './services/tags.service';
+import { CategoriesService } from './services/categories.service';
 import { UserComponent } from './user/user.component';
 import { PostsService } from './services/posts.service';
 import { UserService } from './services/user.service';
@@ -18,10 +20,10 @@ import { AppComponent } from './app.component';
 import { MatSidenavModule, MatCardModule, MatButtonModule, MatChipsModule, MatPaginatorModule, MatExpansionModule, MatListModule, MatInputModule, MatSnackBarModule } from '@angular/material';
 import { QuillModule } from 'ngx-quill';
 
-const ROUTES: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'full-post', component: FullPostComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+export const ROUTES: Routes = [
+  // { path: 'home', component: DashboardComponent },
+  { path: 'post/:postId', component: FullPostComponent },
+  { path: '', pathMatch: 'full', component: DashboardComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -32,11 +34,11 @@ const ROUTES: Routes = [
   imports: [
     BrowserModule,  RouterModule.forRoot(
       ROUTES,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     ), HttpClientModule,
     BrowserAnimationsModule, MatSidenavModule, MatCardModule, MatButtonModule, MatChipsModule, MatPaginatorModule, MatExpansionModule, QuillModule, MatListModule, MatInputModule, MatSnackBarModule
   ],
-  providers: [UserService, PostsService],
+  providers: [UserService, PostsService, CategoriesService, TagsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

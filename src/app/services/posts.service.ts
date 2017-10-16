@@ -12,5 +12,9 @@ export class PostsService {
     getPostsList() : Observable<any> {
         return this.http.get(`${this.url}posts/`);
     };
+
+    getPostById(id) : Observable<any> {
+        return this.http.get(`${this.url}posts/${id}`);
+    }
     
 }
