@@ -10,7 +10,7 @@ export class PostsService {
     constructor(private http: HttpClient) { };
 
     getPostsList() : Observable<any> {
-        return this.http.get(`${this.url}posts/`);
+        return this.http.get(`${this.url}posts/?_embed&?per_page=10`);
     };
 
     getPostById(id) : Observable<any> {

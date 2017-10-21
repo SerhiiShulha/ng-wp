@@ -1,17 +1,27 @@
 <md-card class="post" *ngFor="let post of posts">
   <md-card-header>
-    <div md-card-avatar><img src="{{post.authoravatar}}" class="img-fluid"></div>
     <md-card-title><h3>{{post.title.rendered}}</h3></md-card-title>
+    <!-- <div class="author" *ngFor="let author of post['_embedded'].author">
+      <div md-card-avatar><img src="{{author.avatar_urls['96']}}" class="img-fluid"></div>
+      <md-card-subtitle> {{author.name}}</md-card-subtitle>
+    </div> -->
     <md-card-subtitle>
-      <span *ngFor="let category of post.categoryNames">{{category}}</span>
+      <span *ngFor="let category of post['_embedded']['wp:term'][0]" > <span *ngIf="category.id != 1">{{category.name}}</span></span>
     </md-card-subtitle>
-    <md-card-subtitle> {{post.authorName}} | {{post.date | date}}</md-card-subtitle>
+    <md-card-subtitle>
+      <span class="author-name" *ngFor="let author of post['_embedded'].author">@{{author.name}}</span>
+      {{post.date | date}}
+    </md-card-subtitle>
+    
   </md-card-header>
-  <img md-card-image src="{{post.img}}" alt="Описание картинки поста" class="post-img">
+  <div class="post-ipreview-img" *ngFor="let img of post['_embedded']['wp:featuredmedia']">
+      <img md-card-image src="{{img.source_url}}" alt="Описание картинки поста" class="post-img">
+  </div>
+  
   <md-card-content>
-    <p>{{post.excerpt.rendered}}</p>
+    <div innerHtml="{{post.excerpt.rendered}}"></div>
     <md-chip-list>
-      <md-chip *ngFor="let tag of post.tagNames"> {{tag}} </md-chip>      
+      <md-chip *ngFor="let tag of post['_embedded']['wp:term'][1]"> {{tag.name}} </md-chip>      
     </md-chip-list>
   </md-card-content>
   <md-card-actions align="end">

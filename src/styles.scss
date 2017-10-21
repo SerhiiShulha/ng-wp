@@ -40,7 +40,11 @@
             }
         }
         .mat-card-subtitle{
-            margin: 0;
+            margin-bottom: 10px;
+
+            .author-name{
+                margin-right: 10px;
+            }
         }
     }
     .mat-chip-list-wrapper{

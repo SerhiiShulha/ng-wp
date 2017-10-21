@@ -1,3 +1,4 @@
+import { MediaService } from './services/media.service';
 import { TagsService } from './services/tags.service';
 import { CategoriesService } from './services/categories.service';
 import { UserComponent } from './user/user.component';
@@ -38,7 +39,7 @@ export const ROUTES: Routes = [
     ), HttpClientModule,
     BrowserAnimationsModule, MatSidenavModule, MatCardModule, MatButtonModule, MatChipsModule, MatPaginatorModule, MatExpansionModule, QuillModule, MatListModule, MatInputModule, MatSnackBarModule
   ],
-  providers: [UserService, PostsService, CategoriesService, TagsService],
+  providers: [UserService, PostsService, CategoriesService, TagsService, MediaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
